@@ -12,6 +12,7 @@ function addTodo(event) {
     // Prevent Default
     event.preventDefault();
     // Todo DIV
+    if( todoInput.value != "" ) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
     // Create LI 
@@ -32,15 +33,14 @@ function addTodo(event) {
     trashButton.classList.add("trash-btn");
     todoDiv.appendChild(trashButton);
 
-
     //APPEND TO LIST 
     todoList.appendChild(todoDiv);
+    }
     //CLEAR todo INPUT VALUE
     todoInput.value = "";
-    // HASTA AQUI SE PRACTICA LO DEMAS SE PRACTICA LUEGO
 }
     //DELETE TODO
-function deleteCheck(e) {
+    function deleteCheck(e) {
     const item = e.target;
         if (item.classList[0] === 'trash-btn') {
         const todo = item.parentElement;
@@ -51,7 +51,6 @@ function deleteCheck(e) {
     } 
 
     //CHECK MARK
-
     if(item.classList[0] === 'complete-btn') {
         const todo = item.parentElement;
         todo.classList.toggle("completed");
